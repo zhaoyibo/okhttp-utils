@@ -10,7 +10,7 @@ import com.windmt.request.RequestCall;
 public class HeadBuilder extends AbstractQueriesableRequestBuilder<HeadBuilder> implements HasQueriesable {
 
     @Override
-    public RequestCall selfBuild() {
+    protected RequestCall selfBuild() {
         if (this.queries != null) {
             appendQueries(url, queries);
         }

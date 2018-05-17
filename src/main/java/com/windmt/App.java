@@ -29,7 +29,7 @@ public class App {
                             transformer.getHeaders()
                     )
                     .cookies(
-                            transformer.getCookie()
+                            transformer.getCookies()
                     )
                     .build()
                     .execute()
@@ -45,7 +45,7 @@ public class App {
                             transformer.getHeaders()
                     )
                     .cookies(
-                            transformer.getCookie()
+                            transformer.getCookies()
                     )
                     .params(
                             transformer.getParams()

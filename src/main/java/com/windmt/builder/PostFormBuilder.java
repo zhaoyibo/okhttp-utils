@@ -27,7 +27,7 @@ public class PostFormBuilder extends AbstractQueriesableRequestBuilder<PostFormB
     }
 
     @Override
-    public RequestCall selfBuild() {
+    protected RequestCall selfBuild() {
         if (queries != null) {
             url = appendQueries(url, queries);
         }

@@ -9,7 +9,7 @@ import com.windmt.request.RequestCall;
 public class GetBuilder extends AbstractQueriesableRequestBuilder<GetBuilder> implements HasQueriesable {
 
     @Override
-    public RequestCall selfBuild() {
+    protected RequestCall selfBuild() {
         if (queries != null) {
             url = appendQueries(url, queries);
         }

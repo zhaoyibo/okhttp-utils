@@ -42,9 +42,9 @@ OkHttpUtils.initClient(okHttpClient);
 
 * 设置可访问所有的 https 网站
 ```java
-SslUtils.SSLParams sslParams = SslUtils.getSslSocketFactory(null, null, null);
+SslUtils.SslParams sslParams = SslUtils.getSslSocketFactory(null, null, null);
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
-        .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
+        .sslSocketFactory(sslParams.socketFactory, sslParams.trustManager)
         //其他配置
         .build();
 OkHttpUtils.initClient(okHttpClient);
@@ -52,11 +52,11 @@ OkHttpUtils.initClient(okHttpClient);
 
 * 设置具体的证书
 ```java
-SslUtils.SSLParams sslParams = SslUtils.getSslSocketFactory(证书的inputstream, null, null);
+SslUtils.SslParams sslParams = SslUtils.getSslSocketFactory(证书的inputstream, null, null);
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
-        .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager))
-        //其他配置
-        .build();
+        .sslSocketFactory(sslParams.socketFactory, sslParams.trustManager)
+//其他配置
+.build();
 OkHttpUtils.initClient(okHttpClient);
 ```
 
@@ -93,7 +93,14 @@ Response response = OkHttpUtils.post()
 
 # POST JSON
 
-TODO
+```java
+Response response = OkHttpUtils.postString()
+        .url(url)
+        .mediaType(GlobalConstants.MEDIA_TYPE_JSON)
+        .content("{\"username\":\"hello\",\"password\":\"world\"}")
+        .build()
+        .execute();
+```
 
 # cUrl 命令解析
 提供了一个工具类`CurlTransformer`，可以将 curl 命令解析成对应的

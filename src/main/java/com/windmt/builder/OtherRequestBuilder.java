@@ -20,7 +20,7 @@ public class OtherRequestBuilder extends AbstractRequestBuilder<OtherRequestBuil
     }
 
     @Override
-    public RequestCall selfBuild() {
+    protected RequestCall selfBuild() {
         return new OtherRequest(url, queries, params, headers, requestBody, content, method).build();
     }
 

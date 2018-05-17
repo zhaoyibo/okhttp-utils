@@ -23,7 +23,7 @@ public class PostStringBuilder extends AbstractQueriesableRequestBuilder<PostStr
     }
 
     @Override
-    public RequestCall selfBuild() {
+    protected RequestCall selfBuild() {
         return new PostStringRequest(url, queries, params, headers, content, mediaType).build();
     }
 
