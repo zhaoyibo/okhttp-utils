@@ -2,21 +2,19 @@
 
 对 okhttp 的封装类，java 适用，参考 https://github.com/hongyangAndroid/okhttputils
 
-okhttp 见：https://github.com/square/okhttp.
-
-目前对应 okhttp 版本 3.10.0
+okhttp 见：https://github.com/square/okhttp 目前对应 okhttp 版本 3.10.0
 
 jdk 要求 1.8+
 
 # 目前对以下需求进行了封装
 
-* 一般的 get 请求
-* 一般的 post 请求
+* 一般的 GET 请求
+* 一般的 POST 请求
 * 支持 HEAD、DELETE、PATCH、PUT
 * 支持自签名网站 https 的访问，提供方法设置下证书就行
 
 # 配置 OkhttpClient
-默认情况下，将直接使用 okhttp 默认的配置生成 OkhttpClient，如果你有任何配置，记得调用`initClient`方法进行设置。
+默认情况下，将直接使用 okhttp 默认的配置生成 OkHttpClient，如果你有任何配置，记得调用`initClient`方法进行设置。
 
 ```java
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -24,18 +22,18 @@ OkHttpClient okHttpClient = new OkHttpClient.Builder()
           .connectTimeout(10000L, TimeUnit.MILLISECONDS)
           .readTimeout(10000L, TimeUnit.MILLISECONDS)
           //其他配置
-         .build();
+          .build();
          
 OkHttpUtils.initClient(okHttpClient);
 ```
 
 # 对于 Log
-初始化 OkhttpClient 时，通过设置拦截器实现，提供了一个`LoggerInterceptor`，当然你可以自行实现一个 Interceptor 。
+初始化 OkHttpClient 时，通过设置拦截器实现，提供了一个`LoggerInterceptor`，当然你可以自行实现一个 Interceptor 。
 ```java
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
        .addInterceptor(new LoggerInterceptor(true))
-        //其他配置
-        .build();
+       //其他配置
+       .build();
 OkHttpUtils.initClient(okHttpClient);
 ```
 
@@ -47,8 +45,8 @@ OkHttpUtils.initClient(okHttpClient);
 SslUtils.SSLParams sslParams = SslUtils.getSslSocketFactory(null, null, null);
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
         .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
-         //其他配置
-         .build();
+        //其他配置
+        .build();
 OkHttpUtils.initClient(okHttpClient);
 ```
 
@@ -57,8 +55,8 @@ OkHttpUtils.initClient(okHttpClient);
 SslUtils.SSLParams sslParams = SslUtils.getSslSocketFactory(证书的inputstream, null, null);
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
         .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager))
-         //其他配置
-         .build();
+        //其他配置
+        .build();
 OkHttpUtils.initClient(okHttpClient);
 ```
 
