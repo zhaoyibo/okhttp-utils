@@ -2,9 +2,7 @@
 
 对 okhttp 的封装类，java 适用，参考 https://github.com/hongyangAndroid/okhttputils
 
-okhttp 见：https://github.com/square/okhttp.
-
-目前对应 okhttp 版本 3.10.0
+okhttp 见：https://github.com/square/okhttp 目前对应 okhttp 版本 3.10.0
 
 jdk 要求 1.8+
 
