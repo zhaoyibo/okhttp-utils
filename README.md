@@ -1,8 +1,12 @@
 # okhttp-utils
 
-对 okhttp 的封装类，okhttp 见：https://github.com/square/okhttp.
+对 okhttp 的封装类，java 适用，参考 https://github.com/hongyangAndroid/okhttputils
+
+okhttp 见：https://github.com/square/okhttp.
 
 目前对应 okhttp 版本 3.10.0
+
+jdk 要求 1.8+
 
 # 目前对以下需求进行了封装
 
@@ -110,9 +114,9 @@ CurlTransformer transformer = new CurlTransformer(curl);
 Method method = transformer.getMethod();
 String rawUrl = transformer.getRawUrl(); // 带 query
 String baseUrl = transformer.getBaseUrl(); // 不带 query
-FluentMap<String, String> headers = transformer.getHeaders();
-FluentMap<String, String> cookies = transformer.getCookies();
-FluentMap<String, String> queries = transformer.getQueries();
-FluentMap<String, String> params = transformer.getParams(); // post parameters
+Map<String, String> headers = transformer.getHeaders();
+Map<String, String> cookies = transformer.getCookies();
+Map<String, String> queries = transformer.getQueries();
+Map<String, String> params = transformer.getParams(); // post parameters
 
 ```
