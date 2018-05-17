@@ -22,7 +22,7 @@ OkHttpClient okHttpClient = new OkHttpClient.Builder()
           .connectTimeout(10000L, TimeUnit.MILLISECONDS)
           .readTimeout(10000L, TimeUnit.MILLISECONDS)
           //其他配置
-         .build();
+          .build();
          
 OkHttpUtils.initClient(okHttpClient);
 ```
@@ -32,8 +32,8 @@ OkHttpUtils.initClient(okHttpClient);
 ```java
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
        .addInterceptor(new LoggerInterceptor(true))
-        //其他配置
-        .build();
+       //其他配置
+       .build();
 OkHttpUtils.initClient(okHttpClient);
 ```
 
@@ -45,8 +45,8 @@ OkHttpUtils.initClient(okHttpClient);
 SslUtils.SSLParams sslParams = SslUtils.getSslSocketFactory(null, null, null);
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
         .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
-         //其他配置
-         .build();
+        //其他配置
+        .build();
 OkHttpUtils.initClient(okHttpClient);
 ```
 
@@ -55,8 +55,8 @@ OkHttpUtils.initClient(okHttpClient);
 SslUtils.SSLParams sslParams = SslUtils.getSslSocketFactory(证书的inputstream, null, null);
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
         .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager))
-         //其他配置
-         .build();
+        //其他配置
+        .build();
 OkHttpUtils.initClient(okHttpClient);
 ```
 
