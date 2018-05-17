@@ -19,14 +19,14 @@ public class SslUtils {
             TrustManager[] trustManagers = prepareTrustManager(certificates);
             KeyManager[] keyManagers = prepareKeyManager(bksFile, password);
             SSLContext sslContext = SSLContext.getInstance("TLS");
-            X509TrustManager trustManager = null;
+            X509TrustManager trustManager;
             if (trustManagers != null) {
                 trustManager = new MyTrustManager(chooseTrustManager(trustManagers));
             } else {
                 trustManager = new UnSafeTrustManager();
             }
             sslContext.init(keyManagers, new TrustManager[]{trustManager}, null);
-            sslParams.sSLSocketFactory = sslContext.getSocketFactory();
+            sslParams.socketFactory = sslContext.getSocketFactory();
             sslParams.trustManager = trustManager;
             return sslParams;
         } catch (NoSuchAlgorithmException e) {
@@ -118,7 +118,7 @@ public class SslUtils {
     }
 
     public static class SslParams {
-        public SSLSocketFactory sSLSocketFactory;
+        public SSLSocketFactory socketFactory;
         public X509TrustManager trustManager;
     }
 
