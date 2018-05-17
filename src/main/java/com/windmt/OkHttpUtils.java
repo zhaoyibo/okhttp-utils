@@ -26,7 +26,7 @@ public class OkHttpUtils {
 
     public OkHttpUtils(OkHttpClient okHttpClient) {
         if (okHttpClient == null) {
-            SslUtils.SSLParams sslParams = SslUtils.getSslSocketFactory(null, null, null);
+            SslUtils.SslParams sslParams = SslUtils.getSslSocketFactory(null, null, null);
             this.okHttpClient = new OkHttpClient()
                     .newBuilder()
                     .addInterceptor(new LoggerInterceptor(true))

@@ -13,8 +13,8 @@ import java.security.cert.X509Certificate;
  **/
 public class SslUtils {
 
-    public static SSLParams getSslSocketFactory(InputStream[] certificates, InputStream bksFile, String password) {
-        SSLParams sslParams = new SSLParams();
+    public static SslParams getSslSocketFactory(InputStream[] certificates, InputStream bksFile, String password) {
+        SslParams sslParams = new SslParams();
         try {
             TrustManager[] trustManagers = prepareTrustManager(certificates);
             KeyManager[] keyManagers = prepareKeyManager(bksFile, password);
@@ -55,12 +55,10 @@ public class SslUtils {
                     if (certificate != null) {
                         certificate.close();
                     }
-                } catch (IOException e)
-
-                {
+                } catch (IOException e) {
                 }
             }
-            TrustManagerFactory trustManagerFactory = null;
+            TrustManagerFactory trustManagerFactory;
 
             trustManagerFactory = TrustManagerFactory.
                     getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -119,20 +117,18 @@ public class SslUtils {
         return null;
     }
 
-    public static class SSLParams {
+    public static class SslParams {
         public SSLSocketFactory sSLSocketFactory;
         public X509TrustManager trustManager;
     }
 
     private static class UnSafeTrustManager implements X509TrustManager {
         @Override
-        public void checkClientTrusted(X509Certificate[] chain, String authType)
-                throws CertificateException {
+        public void checkClientTrusted(X509Certificate[] chain, String authType) {
         }
 
         @Override
-        public void checkServerTrusted(X509Certificate[] chain, String authType)
-                throws CertificateException {
+        public void checkServerTrusted(X509Certificate[] chain, String authType) {
         }
 
         @Override
@@ -154,7 +150,7 @@ public class SslUtils {
 
 
         @Override
-        public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+        public void checkClientTrusted(X509Certificate[] chain, String authType) {
 
         }
 
