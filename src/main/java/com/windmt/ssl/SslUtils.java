@@ -26,7 +26,7 @@ public class SslUtils {
                 trustManager = new UnSafeTrustManager();
             }
             sslContext.init(keyManagers, new TrustManager[]{trustManager}, null);
-            sslParams.socketFactory = sslContext.getSocketFactory();
+            sslParams.sslSocketFactory = sslContext.getSocketFactory();
             sslParams.trustManager = trustManager;
             return sslParams;
         } catch (NoSuchAlgorithmException e) {
@@ -118,7 +118,7 @@ public class SslUtils {
     }
 
     public static class SslParams {
-        public SSLSocketFactory socketFactory;
+        public SSLSocketFactory sslSocketFactory;
         public X509TrustManager trustManager;
     }
 

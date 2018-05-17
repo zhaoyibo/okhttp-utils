@@ -30,7 +30,7 @@ public class OkHttpUtils {
             this.okHttpClient = new OkHttpClient()
                     .newBuilder()
                     .addInterceptor(new LoggerInterceptor(true))
-                    .sslSocketFactory(sslParams.socketFactory, sslParams.trustManager)
+                    .sslSocketFactory(sslParams.sslSocketFactory, sslParams.trustManager)
                     .readTimeout(DEFAULT_MILLISECONDS, TimeUnit.MILLISECONDS)
                     .writeTimeout(DEFAULT_MILLISECONDS, TimeUnit.MILLISECONDS)
                     .connectTimeout(DEFAULT_MILLISECONDS, TimeUnit.MILLISECONDS)

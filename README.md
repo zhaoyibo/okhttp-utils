@@ -44,7 +44,7 @@ OkHttpUtils.initClient(okHttpClient);
 ```java
 SslUtils.SslParams sslParams = SslUtils.getSslSocketFactory(null, null, null);
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
-        .sslSocketFactory(sslParams.socketFactory, sslParams.trustManager)
+        .sslSocketFactory(sslParams.sslSocketFactory, sslParams.trustManager)
         //其他配置
         .build();
 OkHttpUtils.initClient(okHttpClient);
@@ -54,7 +54,7 @@ OkHttpUtils.initClient(okHttpClient);
 ```java
 SslUtils.SslParams sslParams = SslUtils.getSslSocketFactory(证书的inputstream, null, null);
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
-        .sslSocketFactory(sslParams.socketFactory, sslParams.trustManager)
+        .sslSocketFactory(sslParams.sslSocketFactory, sslParams.trustManager)
 //其他配置
 .build();
 OkHttpUtils.initClient(okHttpClient);
