@@ -61,7 +61,7 @@ public class CurlTransformer {
         System.out.println("queries: " + transformer.getQueries());
         System.out.println("params: " + transformer.getParams());
         System.out.println("headers: " + transformer.getHeaders());
-        System.out.println("cookies: " + transformer.getCookie());
+        System.out.println("cookies: " + transformer.getCookies());
     }
 
     public String getBaseUrl() {
@@ -113,7 +113,7 @@ public class CurlTransformer {
         return headers;
     }
 
-    public FluentMap<String, String> getCookie() {
+    public FluentMap<String, String> getCookies() {
         if (cookies != null) {
             return cookies;
         }
