@@ -8,13 +8,13 @@ jdk 要求 1.8+
 
 # 目前对以下需求进行了封装
 
-* 一般的 get 请求
-* 一般的 post 请求
+* 一般的 GET 请求
+* 一般的 POST 请求
 * 支持 HEAD、DELETE、PATCH、PUT
 * 支持自签名网站 https 的访问，提供方法设置下证书就行
 
 # 配置 OkhttpClient
-默认情况下，将直接使用 okhttp 默认的配置生成 OkhttpClient，如果你有任何配置，记得调用`initClient`方法进行设置。
+默认情况下，将直接使用 okhttp 默认的配置生成 OkHttpClient，如果你有任何配置，记得调用`initClient`方法进行设置。
 
 ```java
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -28,7 +28,7 @@ OkHttpUtils.initClient(okHttpClient);
 ```
 
 # 对于 Log
-初始化 OkhttpClient 时，通过设置拦截器实现，提供了一个`LoggerInterceptor`，当然你可以自行实现一个 Interceptor 。
+初始化 OkHttpClient 时，通过设置拦截器实现，提供了一个`LoggerInterceptor`，当然你可以自行实现一个 Interceptor 。
 ```java
 OkHttpClient okHttpClient = new OkHttpClient.Builder()
        .addInterceptor(new LoggerInterceptor(true))
